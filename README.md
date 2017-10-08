@@ -4,7 +4,7 @@ to detect human faces based on a pre-trained face detection model.
 
 This project is still in its **beta** phase and will mature overtime with lot more extensions for different platforms.
 
-**Languages Supported:** Python3
+**Languages Supported:** Python3 and C++
 
 # Instructions
 Keep checking this space for more instructions.

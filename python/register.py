@@ -12,15 +12,15 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 # ==============================================================================
-''' Attendance System based on Transfer Learning on Google's Inception V3 labels
-    Train your labels based on the instructions given here:
+""" Attendance System based on Transfer Learning on Google's Inception V3 models
+    Train your models based on the instructions given here:
     https://www.tensorflow.org/tutorials/image_retraining
-    
+
     This script loads the graph 'output_graph.pb' and feeds in the camera stream
     The region of interest i.e the user's face is extracted from the frame and
     converted to a numpy array. This array is passed to the softmax_tensor as
     input which calculates the predictions from the final layer softmax function.
-'''
+"""
 
 import cv2 as opencv
 import os
@@ -62,8 +62,8 @@ face_cascade = opencv.CascadeClassifier(
 video_cam = opencv.VideoCapture(0)
 while True:
     status, frame = video_cam.read()
-    body = face_cascade.detectMultiScale(frame, scaleFactor=1.1, minNeighbors=3)
-    for (x, y, width, height) in body:
+    face = face_cascade.detectMultiScale(frame, scaleFactor=1.1, minNeighbors=3)
+    for (x, y, width, height) in face:
         region_of_interest = frame[y:y + height, x:x + width]
         if height > 100 or width > 100:
             run_detection(np.asarray(region_of_interest), labels)

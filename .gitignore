@@ -1,3 +1,4 @@
 .idea/
 labels/
 classifiers/output_graph.pb
+cmake-build-debug/
